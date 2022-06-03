@@ -2,23 +2,19 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Database\Factories\AirportFactory;
+use Database\Factories\FlightFactory;
+use Database\Factories\GateFactory;
+use Database\Factories\PlaneFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
-    public function run()
+    public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        GateFactory::times(5)->create();
+        FlightFactory::times(5)->create();
+        PlaneFactory::times(5)->create();
+        AirportFactory::times(5)->create();
     }
 }
