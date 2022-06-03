@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Airport;
+use App\Models\Flight;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
-class AirportController extends Controller
+class FlightController extends Controller
 {
     public function index(Request $request): View
     {
-        return view('airports')->with([
-            'airports' => Airport::all(),
+        return view('flights')->with([
+            'flights' => Flight::all(),
             'request' => $request->all(),
         ]);
     }
