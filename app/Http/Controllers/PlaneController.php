@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Airport;
 use App\Models\Plane;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class PlaneController extends Controller
 {
@@ -31,9 +33,29 @@ class PlaneController extends Controller
         ]);
     }
 
-    public function store(): View
+    /**
+     * @throws \Exception
+     */
+    public function store(Request $request): RedirectResponse
     {
-        return view('plane.index');
+        try {
+            Plane::query()->create([
+                'passengers' => $request->input('passengers'),
+                'refuel_time' => $request->input('refuel_time'),
+                'jet' =>  $request->input('jet') === 'on',
+                'propeller' =>  $request->input('propeller') === 'on',
+            ]);
+        } catch (\Exception $exception) {
+            Log::error('Failed', [
+                'exception' => $exception->getMessage()
+            ]);
+
+            // TODO: Show error in view
+
+            throw $exception;
+        }
+
+        return redirect(route('planes.index'));
     }
 
     public function update(Plane $plane): View

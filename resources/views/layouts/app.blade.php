@@ -15,6 +15,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -52,21 +54,34 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('airports.index') }}">{{ __('Airports') }}</a>
+                            <li class="nav-item me-2">
+                                <a class="nav-link d-flex align-items-center" href="{{ route('airports.index') }}">
+                                    <i class="las la-spider fs-4 me-2"></i>
+                                    {{ __('Airports') }}
+                                </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('flights.index') }}">{{ __('Flights') }}</a>
+                            <li class="nav-item me-2">
+                                <a class="nav-link d-flex align-items-center" href="{{ route('flights.index') }}">
+                                    <i class="las la-heartbeat fs-4 me-2"></i>
+                                    {{ __('Flights') }}
+                                </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('gates.index') }}">{{ __('Gates') }}</a>
+                            <li class="nav-item me-2">
+                                <a class="nav-link d-flex align-items-center" href="{{ route('gates.index') }}">
+                                    <i class="las la-door-open fs-4 me-2"></i>
+                                    {{ __('Gates') }}
+                                </a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('planes.index') }}">{{ __('Planes') }}</a>
+                            <li class="nav-item me-2">
+                                <a class="nav-link d-flex align-items-center" href="{{ route('planes.index') }}">
+                                    <i class="las la-radiation fs-4 me-2"></i>
+                                    {{ __('Planes') }}
+                                </a>
                             </li>
 
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <i class="las la-user-secret fs-4 me-2"></i>
                                     {{ Auth::user()->name }}
                                 </a>
 

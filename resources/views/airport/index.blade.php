@@ -24,16 +24,17 @@
                                         <td>{{ $airport->created_at }}</td>
                                         <td class="text-end">
                                             <form method="post"
-                                                  class="d-inline-block"
-                                                  action="{{ action([\App\Http\Controllers\AirportController::class, 'destroy'], $airport) }}">
+                                                  action="{{ action([\App\Http\Controllers\AirportController::class, 'destroy'], $airport) }}"
+                                                  class="d-inline-block">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit"
-                                                        class="btn btn-danger btn-sm">
+                                                <button class="btn btn-danger btn-sm">
+                                                    <i class="las la-trash"></i>
                                                     {{ __('Delete') }}
                                                 </button>
                                             </form>
                                             <button class="btn btn-primary btn-sm">
+                                                <i class="las la-pencil-alt"></i>
                                                 {{ __('Edit') }}
                                             </button>
                                         </td>
@@ -41,6 +42,13 @@
                                 @endforeach
                                 </tbody>
                             </table>
+
+                            <div>
+                                <a href="{{ route('airports.create') }}" class="btn btn-primary">
+                                    <i class="las la-plus me-1"></i>
+                                    {{ __('Add Airport') }}
+                                </a>
+                            </div>
                         @endauth
 
                         @guest

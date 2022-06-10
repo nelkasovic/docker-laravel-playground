@@ -18,4 +18,6 @@ use Illuminate\Database\Eloquent\Model;
 class Gate extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['number', 'state_free', 'size_small', 'international'];
 }

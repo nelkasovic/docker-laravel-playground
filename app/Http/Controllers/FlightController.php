@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Airport;
 use App\Models\Flight;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class FlightController extends Controller
 {
@@ -31,9 +33,28 @@ class FlightController extends Controller
         ]);
     }
 
-    public function store(): View
+    /**
+     * @throws \Exception
+     */
+    public function store(Request $request): RedirectResponse
     {
-        return view('flight.index');
+        try {
+            Flight::query()->create([
+                'number' => $request->input('number'),
+                'start_time' => $request->input('start_time'),
+                'landing_time' => $request->input('landing_time')
+            ]);
+        } catch (\Exception $exception) {
+            Log::error('Failed', [
+                'exception' => $exception->getMessage()
+            ]);
+
+            // TODO: Show error in view
+
+            throw $exception;
+        }
+
+        return redirect(route('flights.index'));
     }
 
     public function update(Flight $flight): View

@@ -6,6 +6,7 @@ use App\Models\Airport;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class AirportController extends Controller
 {
@@ -31,9 +32,25 @@ class AirportController extends Controller
         ]);
     }
 
-    public function store(): View
+    /**
+     * @throws \Exception
+     */
+    public function store(Request $request): RedirectResponse
     {
-        return view('airport.index');
+        try {
+            Airport::query()->create([
+                'name' => $request->input('name')
+            ]);
+        } catch (\Exception $exception) {
+            Log::error('Failed', [
+                'exception' => $exception->getMessage()
+            ]);
+            // TODO: Show error in view
+
+            throw $exception;
+        }
+
+        return redirect(route('airports.index'));
     }
 
     public function update(Airport $airport): View

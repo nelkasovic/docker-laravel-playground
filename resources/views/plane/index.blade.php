@@ -46,10 +46,12 @@
                                                 @method('DELETE')
                                                 <button type="submit"
                                                         class="btn btn-danger btn-sm">
+                                                    <i class="las la-trash"></i>
                                                     {{ __('Delete') }}
                                                 </button>
                                             </form>
                                             <button class="btn btn-primary btn-sm">
+                                                <i class="las la-pencil-alt"></i>
                                                 {{ __('Edit') }}
                                             </button>
                                         </td>
@@ -57,6 +59,12 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                            <div>
+                                <a href="{{ route('planes.create') }}" class="btn btn-primary">
+                                    <i class="las la-plus me-1"></i>
+                                    {{ __('Add Plane') }}
+                                </a>
+                            </div>
                         @endauth
 
                         @guest

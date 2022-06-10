@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Airport;
 use App\Models\Gate;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class GateController extends Controller
 {
@@ -31,9 +33,29 @@ class GateController extends Controller
         ]);
     }
 
-    public function store(): View
+    /**
+     * @throws \Exception
+     */
+    public function store(Request $request): RedirectResponse
     {
-        return view('gate.index');
+        try {
+            Gate::query()->create([
+                'number' => $request->input('number'),
+                'international' =>  $request->input('international') === 'on',
+                'size_small' =>  $request->input('size_small') === 'on',
+                'state_free' =>  $request->input('state_free') === 'on',
+            ]);
+        } catch (\Exception $exception) {
+            Log::error('Failed', [
+                'exception' => $exception->getMessage()
+            ]);
+
+            // TODO: Show error in view
+
+            throw $exception;
+        }
+
+        return redirect(route('gates.index'));
     }
 
     public function update(Gate $gate): View
