@@ -4,12 +4,12 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Airports') }}</div>
+                    <div class="card-header">{{ __('Gate create') }}</div>
                     <div class="card-body">
                         @auth
-                            @foreach($airports as $airport)
-                                <p>Airport: {{ $airport->name }}</p>
-                            @endforeach
+                           <p>
+                               Hier können später Daten in einem Formular erfasst werden
+                           </p>
                         @endauth
 
                         @guest

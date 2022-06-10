@@ -53,16 +53,16 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('airports') }}">{{ __('Airports') }}</a>
+                                <a class="nav-link" href="{{ route('airports.index') }}">{{ __('Airports') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('flights') }}">{{ __('Flights') }}</a>
+                                <a class="nav-link" href="{{ route('flights.index') }}">{{ __('Flights') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('gates') }}">{{ __('Gates') }}</a>
+                                <a class="nav-link" href="{{ route('gates.index') }}">{{ __('Gates') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('planes') }}">{{ __('Planes') }}</a>
+                                <a class="nav-link" href="{{ route('planes.index') }}">{{ __('Planes') }}</a>
                             </li>
 
                             <li class="nav-item dropdown">

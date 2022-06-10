@@ -4,12 +4,12 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Planes') }}</div>
+                    <div class="card-header">{{ __('Flight create') }}</div>
                     <div class="card-body">
                         @auth
-                            @foreach($planes as $plane)
-                                <p>Passengers: {{ $plane->passengers }}</p>
-                            @endforeach
+                           <p>
+                               Hier können später Daten in einem Formular erfasst werden
+                           </p>
                         @endauth
 
                         @guest

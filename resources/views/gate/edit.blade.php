@@ -4,12 +4,18 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Flights') }}</div>
+                    <div class="card-header">{{ __('Gate edit') }}</div>
                     <div class="card-body">
                         @auth
-                            @foreach($flights as $flight)
-                                <p>Flight: {{ $flight->number }}</p>
-                            @endforeach
+                           <p>
+                               {{ $gate->id }}
+                               {{ $gate->number }}
+                               {{ $gate->size_small }}
+                               {{ $gate->state_free }}
+                               {{ $gate->international }}
+                               {{ $gate->created_at }}
+                               {{ $gate->updated_at }}
+                           </p>
                         @endauth
 
                         @guest
