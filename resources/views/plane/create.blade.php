@@ -17,6 +17,7 @@
                                            class="form-control"
                                            id="passengers"
                                            name="passengers"
+                                           required
                                            aria-describedby="passengersHelp">
                                     <div id="passengersHelp" class="form-text">
                                         {{ __('Help for passengers if needed') }}
@@ -30,6 +31,7 @@
                                            class="form-control"
                                            id="refuel_time"
                                            name="refuel_time"
+                                           required
                                            aria-describedby="refuelTimeHelp">
                                     <div id="refuelTimeHelp" class="form-text">
                                         {{ __('Help for refuel time if needed') }}

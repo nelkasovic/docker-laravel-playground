@@ -18,6 +18,7 @@
                                            class="form-control"
                                            id="name"
                                            name="name"
+                                           required
                                            aria-describedby="nameHelp">
                                     <div id="nameHelp" class="form-text">
                                         {{ __('Help for name if needed') }}

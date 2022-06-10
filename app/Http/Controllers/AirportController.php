@@ -13,8 +13,7 @@ class AirportController extends Controller
     public function index(Request $request): View
     {
         return view('airport.index')->with([
-            'airports' => Airport::all(),
-            'request' => $request->all(),
+            'airports' => Airport::all()->sortByDesc('created_at')
         ]);
     }
 

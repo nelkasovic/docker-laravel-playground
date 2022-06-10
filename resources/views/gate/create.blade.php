@@ -17,6 +17,7 @@
                                            class="form-control"
                                            id="number"
                                            name="number"
+                                           required
                                            aria-describedby="numberHelp">
                                     <div id="numberHelp" class="form-text">
                                         {{ __('Help for number if needed') }}

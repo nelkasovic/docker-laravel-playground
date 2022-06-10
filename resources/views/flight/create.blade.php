@@ -15,6 +15,7 @@
                                     <label for="number"
                                            class="form-label">{{ __('Number') }}</label>
                                     <input type="number"
+                                           required
                                            class="form-control"
                                            id="number"
                                            name="number"
@@ -30,6 +31,7 @@
                                            class="form-control"
                                            id="start_time"
                                            name="start_time"
+                                           required
                                            aria-describedby="startTimeHelp">
                                     <div id="startTimeHelp" class="form-text">
                                         {{ __('Help for start time if needed') }}
@@ -42,6 +44,7 @@
                                            class="form-control"
                                            id="landing_time"
                                            name="landing_time"
+                                           required
                                            aria-describedby="landingTimeHelp">
                                     <div id="landingTimeHelp" class="form-text">
                                         {{ __('Help for landing time if needed') }}

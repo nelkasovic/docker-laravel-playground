@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Airport;
 use App\Models\Plane;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -14,8 +13,7 @@ class PlaneController extends Controller
     public function index(Request $request): View
     {
         return view('plane.index')->with([
-            'planes' => Plane::all(),
-            'request' => $request->all(),
+            'planes' => Plane::all()->sortByDesc('created_at'),
         ]);
     }
 

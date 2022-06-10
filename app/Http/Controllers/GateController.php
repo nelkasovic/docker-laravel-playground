@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Airport;
 use App\Models\Gate;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -14,8 +13,7 @@ class GateController extends Controller
     public function index(Request $request): View
     {
         return view('gate.index')->with([
-            'gates' => Gate::all(),
-            'request' => $request->all(),
+            'gates' => Gate::all()->sortByDesc('created_at'),
         ]);
     }
 
@@ -41,9 +39,9 @@ class GateController extends Controller
         try {
             Gate::query()->create([
                 'number' => $request->input('number'),
-                'international' =>  $request->input('international') === 'on',
-                'size_small' =>  $request->input('size_small') === 'on',
-                'state_free' =>  $request->input('state_free') === 'on',
+                'international' => $request->input('international') === 'on',
+                'size_small' => $request->input('size_small') === 'on',
+                'state_free' => $request->input('state_free') === 'on',
             ]);
         } catch (\Exception $exception) {
             Log::error('Failed', [
