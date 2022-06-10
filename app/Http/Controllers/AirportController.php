@@ -15,4 +15,10 @@ class AirportController extends Controller
             'request' => $request->all(),
         ]);
     }
+
+    public function show(Airport $airport): void
+    {
+        //$airport = Airport::query()->find($id);
+        dd($airport);
+    }
 }

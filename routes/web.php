@@ -38,8 +38,35 @@ Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name(
  * })->name('planes');
  */
 
-Route::get('airports', [AirportController::class, 'index'])->name('airports');
 Route::get('gates', [GateController::class, 'index'])->name('gates');
 Route::get('planes', [PlaneController::class, 'index'])->name('planes');
 Route::get('flights', [FlightController::class, 'index'])->name('flights');
+
+// Airport
+Route::get('airports', [AirportController::class, 'index'])->name('airports.index');
+Route::post('airports', [AirportController::class, 'create'])->name('airports.create');
+Route::get('airports/{id}/show', [AirportController::class, 'show'])->name('airports.show');
+Route::get('airports/{id}/edit', [AirportController::class, 'edit'])->name('airports.edit');
+Route::put('airports/{id}', [AirportController::class, 'update'])->name('airports.update');
+Route::delete('airports/{id}', [AirportController::class, 'destroy'])->name('airports.destroy');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
