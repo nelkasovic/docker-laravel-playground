@@ -4,17 +4,13 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Plane show') }}</div>
+                    <div class="card-header">{{ __('Order show') }}</div>
                     <div class="card-body">
                         @auth
                            <p>
-                               {{ $plane->id }}
-                               {{ $plane->refuel_time }}
-                               {{ $plane->passengers }}
-                               {{ $plane->jet }}
-                               {{ $plane->propeller }}
-                               {{ $plane->created_at }}
-                               {{ $plane->updated_at }}
+                               {{ $order->id }}
+                               {{ $order->created_at }}
+                               {{ $order->updated_at }}
                            </p>
                         @endauth
 

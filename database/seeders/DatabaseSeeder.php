@@ -2,19 +2,14 @@
 
 namespace Database\Seeders;
 
-use Database\Factories\AirportFactory;
-use Database\Factories\FlightFactory;
-use Database\Factories\GateFactory;
-use Database\Factories\PlaneFactory;
+use Database\Factories\ArticleFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        GateFactory::times(5)->create();
-        FlightFactory::times(5)->create();
-        PlaneFactory::times(5)->create();
-        AirportFactory::times(5)->create();
+        //CustomerFactory::times(2)->create();
+        ArticleFactory::times(20)->create();
     }
 }

@@ -55,34 +55,20 @@
                             @endif
                         @else
                             <li class="nav-item me-2">
-                                <a class="nav-link d-flex align-items-center" href="{{ route('airports.index') }}">
+                                <a class="nav-link d-flex align-items-center" href="{{ route('orders.index') }}">
                                     <i class="las la-spider fs-4 me-2"></i>
-                                    {{ __('Airports') }}
+                                    {{ __('Orders') }}
                                 </a>
                             </li>
-                            <li class="nav-item me-2">
-                                <a class="nav-link d-flex align-items-center" href="{{ route('flights.index') }}">
-                                    <i class="las la-heartbeat fs-4 me-2"></i>
-                                    {{ __('Flights') }}
-                                </a>
-                            </li>
-                            <li class="nav-item me-2">
-                                <a class="nav-link d-flex align-items-center" href="{{ route('gates.index') }}">
-                                    <i class="las la-door-open fs-4 me-2"></i>
-                                    {{ __('Gates') }}
-                                </a>
-                            </li>
-                            <li class="nav-item me-2">
-                                <a class="nav-link d-flex align-items-center" href="{{ route('planes.index') }}">
-                                    <i class="las la-radiation fs-4 me-2"></i>
-                                    {{ __('Planes') }}
-                                </a>
-                            </li>
+
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <i class="las la-user-secret fs-4 me-2"></i>
-                                    {{ Auth::user()->name }}
+                                    {{ Auth::user()->name }} {{ Auth::user()->isAdmin() ? '(A)' : '' }}
+                                    @if(Auth::user()->customer)
+                                        | {{ Auth::user()->customer->getFullName() }}
+                                    @endif
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
